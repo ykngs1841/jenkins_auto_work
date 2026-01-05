@@ -34,7 +34,7 @@ Build Number: ${env.BUILD_NUMBER}
 
 첨부된 파일은 이번 빌드의 산출물입니다.
 """,
-                to: "ykngs1841@gmail.com", "Kyungsuyoon@gmail.com"
+                to: "ykngs1841@gmail.com", "Kyungsuyoon@gmail.com",
                 attachmentsPattern: "build_result.txt"
             )
         }
@@ -43,7 +43,7 @@ Build Number: ${env.BUILD_NUMBER}
             emailext (
                 subject: "Jenkins Build FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                 body: "빌드가 실패했습니다. Jenkins 콘솔 로그를 확인하세요.",
-                to: "ykngs1841@gmail.com", "Kyungsuyoon@gmail.com"
+                to: "ykngs1841@gmail.com", "Kyungsuyoon@gmail.com",
             )
         }
     }
