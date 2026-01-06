@@ -9,11 +9,11 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo 'Building project...'
+                echo "Building project on ${env.BUILD_DATE}..."
 
                 // 가짜 산출물 생성 (실무에선 빌드 결과물)
                 bat '''
-                echo Build result for Jenkins demo > build_result.txt
+                echo Build result for Jenkins demo (${env.BUILD_DATE}) > ${env.BUILD_FILE}
                 '''
             }
         }
