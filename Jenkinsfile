@@ -10,7 +10,7 @@ pipeline {
 
                 // 가짜 산출물 생성 (실무에선 빌드 결과물)
                 bat '''
-                GitHub -> Jenkins connection test > build_result.txt
+                echo Build result for Jenkins demo > build_result.txt
                 '''
             }
         }
