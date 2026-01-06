@@ -15,7 +15,6 @@ pipeline {
                 bat """
                 echo Build result for Jenkins demo (${env.BUILD_DATE}) > ${env.BUILD_FILE}
                 """
-                error("Build Test")
             }
         } // 추후 배포 패키지 파일로 대체
 
@@ -49,6 +48,7 @@ pipeline {
                 subject: "Jenkins Build FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                 body: """
                          Build failed. Check the Jenkins console log. 
+
                          http://localhost:8080/job/jenkins_auto_work/job/main/
                         """,
                 to: "kyungsuyoon09@gmail.com, ykngs1841@naver.com"
