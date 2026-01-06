@@ -27,12 +27,12 @@ pipeline {
             emailext (
                 subject: "Jenkins Build SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                 body: """
-빌드가 성공적으로 완료되었습니다.
+The build completed successfully.
 
 Job: ${env.JOB_NAME}
 Build Number: ${env.BUILD_NUMBER}
 
-첨부된 파일은 이번 빌드의 산출물입니다.
+The attached files are the output of this build.
 """,
                 to: "kyungsuyoon09@gmail.com",
                 attachmentsPattern: "build_result.txt"
@@ -42,7 +42,7 @@ Build Number: ${env.BUILD_NUMBER}
         failure {
             emailext (
                 subject: "Jenkins Build FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                body: "빌드가 실패했습니다. Jenkins 콘솔 로그를 확인하세요.",
+                body: "Build failed. Check the Jenkins console log.",
                 to: "kyungsuyoon09@gmail.com",
             )
         }
