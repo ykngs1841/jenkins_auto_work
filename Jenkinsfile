@@ -1,26 +1,26 @@
-
 pipeline {
     agent any
-    
+
     environment {
-              BUILD_DATE = new Date().format('yyMMdd')
+        BUILD_DATE = new Date().format('yyMMdd')
+        BUILD_FILE = "build_result_${BUILD_DATE}.txt"
     }
+
     stages {
 
         stage('Build') {
             steps {
                 echo "Building project on ${env.BUILD_DATE}..."
 
-                // 가짜 산출물 생성 (실무에선 빌드 결과물)
-                bat '''
+                bat """
                 echo Build result for Jenkins demo (${env.BUILD_DATE}) > ${env.BUILD_FILE}
-                '''
+                """
             }
         }
 
         stage('Archive') {
             steps {
-                archiveArtifacts artifacts: 'build_result.txt', fingerprint: true
+                archiveArtifacts artifacts: "${env.BUILD_FILE}", fingerprint: true
             }
         }
     }
@@ -34,11 +34,12 @@ The build completed successfully.
 
 Job: ${env.JOB_NAME}
 Build Number: ${env.BUILD_NUMBER}
+Build Date: ${env.BUILD_DATE}
 
-The attached files are the output of this build.
+The attached file is the output of this build.
 """,
                 to: "kyungsuyoon09@gmail.com",
-                attachmentsPattern: "build_result.txt"
+                attachmentsPattern: "${env.BUILD_FILE}"
             )
         }
 
@@ -46,8 +47,8 @@ The attached files are the output of this build.
             emailext (
                 subject: "Jenkins Build FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                 body: "Build failed. Check the Jenkins console log.",
-                to: "kyungsuyoon09@gmail.com",
+                to: "kyungsuyoon09@gmail.com"
             )
         }
     }
-} // test change
+}
