@@ -1,7 +1,10 @@
 
 pipeline {
     agent any
-
+    
+    environment {
+              BUILD_DATE = new Date().format('yyMMdd')
+    }
     stages {
 
         stage('Build') {
