@@ -38,7 +38,7 @@ Build Date: ${env.BUILD_DATE}
 
 The attached file is the output of this build.
                         """,
-                to: "kyungsuyoon09@gmail.com, ykngs1841@naver.com",
+                to: "kyungsuyoon09@gmail.com, ykngs1841@naver.com, ykngs1841@gmail.com",
                 attachmentsPattern: "${env.BUILD_FILE}"
             )
         }
@@ -51,7 +51,7 @@ The attached file is the output of this build.
 
 Link: http://localhost:8080/job/jenkins_auto_work/job/main/
                         """,
-                to: "kyungsuyoon09@gmail.com, ykngs1841@naver.com"
+                to: "kyungsuyoon09@gmail.com, ykngs1841@naver.com, ykngs1841@gmail.com"
             )
         }
     }
