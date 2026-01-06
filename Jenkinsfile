@@ -38,7 +38,7 @@ Build Date: ${env.BUILD_DATE}
 
 The attached file is the output of this build.
 """,
-                to: "kyungsuyoon09@gmail.com",
+                to: "kyungsuyoon09@gmail.com, ykngs1841@naver.com",
                 attachmentsPattern: "${env.BUILD_FILE}"
             )
         }
@@ -47,7 +47,7 @@ The attached file is the output of this build.
             emailext (
                 subject: "Jenkins Build FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                 body: "Build failed. Check the Jenkins console log.",
-                to: "kyungsuyoon09@gmail.com"
+                to: "kyungsuyoon09@gmail.com, ykngs1841@naver.com"
             )
         }
     }
