@@ -50,7 +50,7 @@ pipeline {
                 body: """
                          Build failed. Check the Jenkins console log. 
                          http://localhost:8080/job/jenkins_auto_work/job/main/
-                        """",
+                        """,
                 to: "kyungsuyoon09@gmail.com, ykngs1841@naver.com"
             )
         }
