@@ -15,7 +15,6 @@ pipeline {
                 bat """
                 echo Build result for Jenkins demo (${env.BUILD_DATE}) > ${env.BUILD_FILE}
                 """
-                error("Test")
             }
         } // 추후 배포 패키지 파일로 대체
 
