@@ -17,11 +17,18 @@ os.makedirs(BUILD_DIR, exist_ok=True)
 
 # ===== 컴파일 명령 정의=====
 cmd = [
-    "C:\msys64\mingw64\bin\g++",       # C++ 컴파일러
+    r"C:\msys64\mingw64\bin\g++.exe",       # C++ 컴파일러
     SRC_FILE,    # 컴파일러 대상 지정
     "-o",        # Output ->이름 명명  
     os.path.join(BUILD_DIR, OUTPUT_FILE)
 ]
+# ===== 디버깅 ======
+print("=== DEBUG ===")
+print("g++ exists:", os.path.exists(r"C:\msys64\mingw64\bin\g++.exe"))
+print("SRC_FILE exists:", os.path.exists(SRC_FILE))
+print("CMD:", cmd)
+print("=============")
+
 
 # ===== 컴파일 실행 =====
 result = subprocess.run( # 외부 명령어 실행
