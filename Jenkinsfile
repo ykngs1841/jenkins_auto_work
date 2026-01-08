@@ -31,12 +31,12 @@ pipeline {
                 subject: "Jenkins Build SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                 body: """
                        The build completed successfully.
-
-Job: ${env.JOB_NAME}
-Build Number: ${env.BUILD_NUMBER}
-Build Date: ${env.BUILD_DATE}
-
-The attached file is the output of this build.
+                       
+                       Job: ${env.JOB_NAME}
+                       Build Number: ${env.BUILD_NUMBER}
+                       Build Date: ${env.BUILD_DATE}
+                       
+                       The attached file is the output of this build.
                         """,
                 to: "kyungsuyoon09@gmail.com, ykngs1841@naver.com, ykngs1841@gmail.com",
                 attachmentsPattern: "${env.BUILD_FILE}"
@@ -48,9 +48,8 @@ The attached file is the output of this build.
                 subject: "Jenkins Build FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                 body: """
                          Build failed. Check the Jenkins console log. 
-
-Link: http://localhost:8080/job/jenkins_auto_work/job/main/
-                        """,
+                         Link: http://localhost:8080/job/jenkins_auto_work/job/main/
+                         // """,
                 to: "kyungsuyoon09@gmail.com, ykngs1841@naver.com, ykngs1841@gmail.com"
             )
         }
