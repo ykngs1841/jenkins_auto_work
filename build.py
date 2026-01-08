@@ -7,7 +7,7 @@ from datetime import datetime
 BUILD_DATE = datetime.now().strftime("%y%m%d")
 PROJECT_ROOT = os.getcwd()                             # 절대경로 설정
 BUILD_DIR = os.path.join(PROJECT_ROOT, "build")        # OS 연결
-SRC_FILE = os.path.join(PROJECT_ROOT, "src", "src/main.cpp")
+SRC_FILE = os.path.join(PROJECT_ROOT, "src", "main.cpp")
 OUTPUT_FILE = f"app_{BUILD_DATE}.exe"                  # 산출물 생성
 
 print(f"=== Build Start : {BUILD_DATE} ===")
@@ -17,7 +17,7 @@ os.makedirs(BUILD_DIR, exist_ok=True)
 
 # ===== 컴파일 명령 정의=====
 cmd = [
-    "g++",       # C++ 컴파일러
+    "C:\msys64\mingw64\bin\g++",       # C++ 컴파일러
     SRC_FILE,    # 컴파일러 대상 지정
     "-o",        # Output ->이름 명명  
     os.path.join(BUILD_DIR, OUTPUT_FILE)
