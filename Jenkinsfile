@@ -13,7 +13,7 @@ pipeline {
                 echo "Building project on ${env.BUILD_DATE}..."
 
                 bat """
-                python build.py
+                "C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python311\\python.exe" build.py
                 """
             }
         } // 추후 배포 패키지 파일로 대체
@@ -49,7 +49,8 @@ pipeline {
             emailext (
                 subject: "Jenkins Build FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                 body: """
-                         Build failed. Check the Jenkins console log: ${env.BUILD_URL}
+                         Build failed. 
+                         Check the Jenkins console log: ${env.BUILD_URL}
                      """,
                 to: "kyungsuyoon09@gmail.com, ykngs1841@naver.com, ykngs1841@gmail.com"
             )
