@@ -13,7 +13,7 @@ pipeline {
                 echo "Building project on ${env.BUILD_DATE}..."
 
                 bat """
-                "C:\\Users\\User\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe" build.py
+                "C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" build.py
                 """
             }
         } // 추후 배포 패키지 파일로 대체
