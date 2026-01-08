@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     environment {
+        PATH = "C:\\msys64\\mingw64\\bin;${env.PATH}"
         BUILD_DATE = new Date().format('yyMMdd') 
         BUILD_FILE = "build_result_${BUILD_DATE}.txt" 
     } //Build 변수 선언 및 파일 적용
