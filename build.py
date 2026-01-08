@@ -7,7 +7,7 @@ from datetime import datetime
 BUILD_DATE = datetime.now().strftime("%y%m%d")
 PROJECT_ROOT = os.getcwd()                             # 절대경로 설정
 BUILD_DIR = os.path.join(PROJECT_ROOT, "build")        # OS 연결
-SRC_FILE = os.path.join(PROJECT_ROOT, "src", "main.cpp")
+SRC_FILE = os.path.join(PROJECT_ROOT, "src", "src/main.cpp")
 OUTPUT_FILE = f"app_{BUILD_DATE}.exe"                  # 산출물 생성
 
 print(f"=== Build Start : {BUILD_DATE} ===")
