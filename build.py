@@ -43,10 +43,16 @@ log_file = os.path.join(BUILD_DIR, f"build_log_{BUILD_DATE}.txt")
 # ===== 실패 처리 =====
 if result.returncode != 0:
     print("Build FAILED")
+    print("=== STDOUT ===")
+    print(result.stdout)
+    print("=== STDERR ===")
     print(result.stderr)
 
     with open(log_file, "w") as f:
-        f.write(result.stderr)     #로그 파일 에러메세지 기록
+        f.write("=== STDOUT ===\n")
+        f.write(result.stdout + "\n")
+        f.write("=== STDERR ===\n")
+        f.write(result.stderr)
 
     sys.exit(1)
 
