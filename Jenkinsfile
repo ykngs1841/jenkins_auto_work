@@ -37,7 +37,7 @@ pipeline {
                        Build Date: ${env.BUILD_DATE}
                        
                        The attached file is the output of this build.
-                        """,
+                        """.stripIndent(),
                 to: "kyungsuyoon09@gmail.com, ykngs1841@naver.com, ykngs1841@gmail.com",
                 attachmentsPattern: "${env.BUILD_FILE}"
             )
@@ -49,7 +49,7 @@ pipeline {
                 body: """
                          Build failed. Check the Jenkins console log. 
                          Link: http://localhost:8080/job/jenkins_auto_work/job/main/
-                         // """,
+                          """.stripIndent(),
                 to: "kyungsuyoon09@gmail.com, ykngs1841@naver.com, ykngs1841@gmail.com"
             )
         }
