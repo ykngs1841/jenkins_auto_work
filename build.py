@@ -24,7 +24,7 @@ cmd = [
 ]
 # ===== 디버깅 ======
 print("=== DEBUG ===")
-print("g++ exists:", os.path.exists(r"C:\msys64\mingw64\bin\g++.exe"))
+print("g++ exists:", os.path.exists(r"C:\msys64\mingw64\bin\g++.exe"))  #PATH 문제 발생
 print("SRC_FILE exists:", os.path.exists(SRC_FILE))
 print("CMD:", cmd)
 print("=============")
