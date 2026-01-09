@@ -5,9 +5,10 @@ from datetime import datetime
 
 # ===== 날짜 및 경로 설정 =====
 BUILD_DATE = datetime.now().strftime("%y%m%d")
-PROJECT_ROOT = os.getcwd()                             # 절대경로 설정
-BUILD_DIR = os.path.join(PROJECT_ROOT, "build")        # OS 연결
-SRC_FILE = os.path.join(PROJECT_ROOT, "src", "main.cpp")
+#PROJECT_ROOT = os.getcwd()                            # Docker로 인하여 삭제 진행 # 절대경로 설정
+SRC_ROOT = "/app"
+BUILD_DIR = "/build"                                   # OS 연결 -> Docker로 인하여 수정 
+SRC_FILE = os.path.join(SRC_ROOT, "src", "main.cpp")
 OUTPUT_FILE = f"app_{BUILD_DATE}.exe"                  # 산출물 생성
 
 print(f"=== Build Start : {BUILD_DATE} ===")
