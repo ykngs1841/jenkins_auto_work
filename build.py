@@ -17,7 +17,8 @@ os.makedirs(BUILD_DIR, exist_ok=True)
 
 # ===== 컴파일 명령 정의=====
 cmd = [
-    r"C:\msys64\mingw64\bin\g++.exe",       # C++ 컴파일러
+    #r"C:\msys64\mingw64\bin\g++.exe",       # C++ 컴파일러
+    "g++",
     SRC_FILE,    # 컴파일러 대상 지정
     "-o",        # Output ->이름 명명  
     os.path.join(BUILD_DIR, OUTPUT_FILE)
