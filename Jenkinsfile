@@ -42,7 +42,7 @@ pipeline {
 -Build Number: ${env.BUILD_NUMBER}
 -Build Date: ${env.BUILD_DATE}
                        
-                       The attached file is the output of this build.
+The attached file is the output of this build.
 
                         """,
                 to: "kyungsuyoon09@gmail.com, ykngs1841@naver.com, ykngs1841@gmail.com",
