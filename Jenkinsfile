@@ -5,13 +5,13 @@ pipeline {
         // PATH = "C:\\msys64\\mingw64\\bin;${env.PATH}" -> Docker 수행
         BUILD_DATE = new Date().format('yyMMdd') 
         BUILD_FILE = "build_result_${BUILD_DATE}.txt" 
-    } //Build 변수 선언 및 파일 적용
+    }   //Build 변수 선언 및 파일 적용
 
     stages {
 
         stage('Build') {
             steps {
-                echo "Building project on ${env.BUILD_DATE}..."
+                echo "Building project on build_result_${env.BUILD_DATE}..."
 
                 bat """
                 docker run --rm ^
