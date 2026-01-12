@@ -1,13 +1,22 @@
 pipeline {
     agent any
+    options {
+    disableConcurrentBuilds() 
+    }
 
     environment {
-        // PATH = "C:\\msys64\\mingw64\\bin;${env.PATH}" -> Docker 수행
+        // PATH = "C:\\msys64\\mingw64\\bin;${env.PATH}" -> Docker
         BUILD_DATE = new Date().format('yyMMdd') 
         BUILD_FILE = "build_result_${BUILD_DATE}.txt" 
-    }   //Build 변수 선언 및 파일 적용
+    }   
 
     stages {
+        stage('Checkout') {
+    steps {
+        git branch: 'main',
+            url: 'https://github.com/your-id/your-repo.git'
+            }
+        }
 
         stage('Build') {
             steps {
@@ -20,12 +29,12 @@ pipeline {
                 python build.py
                 """
             }
-        } // 추후 배포 패키지 파일로 대체
+        } 
 
         stage('Archive') {
             steps {
                 archiveArtifacts artifacts: 'build/**', fingerprint: true
-            } // Build 산출물 저장
+            } 
         }
     }
 
