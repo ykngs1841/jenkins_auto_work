@@ -18,7 +18,6 @@ pipeline {
                 -v %WORKSPACE%:/app ^
                 jenkins-build-env ^
                 python build.py
-                error()
                 """
             }
         } // 추후 배포 패키지 파일로 대체
