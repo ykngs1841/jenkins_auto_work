@@ -38,9 +38,9 @@ pipeline {
 
                        The build completed successfully.
 
-                       Job: ${env.JOB_NAME}
-                       Build Number: ${env.BUILD_NUMBER}
-                       Build Date: ${env.BUILD_DATE}
+-Job: ${env.JOB_NAME}
+-Build Number: ${env.BUILD_NUMBER}
+-Build Date: ${env.BUILD_DATE}
                        
                        The attached file is the output of this build.
 
@@ -55,7 +55,7 @@ pipeline {
                 subject: "Jenkins Build FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                 body: """
                          Build failed. 
-                         Check the Jenkins console log: ${env.BUILD_URL}
+-Check the Jenkins console log: ${env.BUILD_URL}
                      """,
                 to: "kyungsuyoon09@gmail.com, ykngs1841@naver.com, ykngs1841@gmail.com"
             )
