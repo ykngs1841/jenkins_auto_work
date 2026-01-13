@@ -11,7 +11,7 @@ BUILD_DIR = "/build"                                   # OS 연결 -> Docker로 
 SRC_FILE = os.path.join(SRC_ROOT, "src", "main.cpp")
 OUTPUT_FILE = f"app_{BUILD_DATE}.exe"                  # 산출물 생성
 
-print(f"=== Build Start : {BUILD_DATE} ===")
+print(f"=== Build Start : {BUILD_DATE} ===", flush=True)
 
 # build 디렉토리 생성
 os.makedirs(BUILD_DIR, exist_ok=True)
@@ -25,11 +25,11 @@ cmd = [
     os.path.join(BUILD_DIR, OUTPUT_FILE)
 ]
 # ===== 디버깅 ======
-print("=== DEBUG ===")
+print("=== DEBUG ===", flush=True)
 # Docker 도입으로 불필요 print("g++ exists:", os.path.exists(r"C:\msys64\mingw64\bin\g++.exe"))  #PATH 문제 발생
-print("SRC_FILE exists:", os.path.exists(SRC_FILE))
-print("CMD:", cmd)
-print("=============")
+print("SRC_FILE exists:", flush=True, os.path.exists(SRC_FILE))
+print("CMD:", cmd, flush=True)
+print("=============", flush=True)
 
 
 # ===== 컴파일 실행 =====
