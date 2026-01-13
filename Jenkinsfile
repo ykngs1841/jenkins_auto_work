@@ -11,17 +11,17 @@ pipeline {
     environment {
         // PATH = "C:\\msys64\\mingw64\\bin;${env.PATH}" -> Docker
         BUILD_DATE = new Date().format('yyMMdd') 
-        BUILD_FILE = "build_result_${BUILD_DATE}.txt" 
+        BUILD_FILE = "build_result${BUILD_DATE}.txt" 
     }   
 
     stages {
         stage('Build') {
             steps {
-                echo "Building project on build_result_${env.BUILD_DATE}..."
+                echo "Building project on build_result${env.BUILD_DATE}..."
 
                 bat """
                 docker run --rm ^
-                -v "%WORKSPACE%":/app ^
+                -v "%WORKSPACE%":/app ^W
                 -v "%WORKSPACE%/build":/build ^
                 -w /app ^
                 jenkins-build-env ^
