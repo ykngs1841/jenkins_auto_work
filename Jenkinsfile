@@ -21,8 +21,8 @@ pipeline {
 
                 bat """
                 docker run --rm ^
-                -v %WORKSPACE%:/app ^
-                -v %WORKSPACE%\\build:/build ^
+                -v "%WORKSPACE%":/app ^
+                -v "%WORKSPACE%\build":/build ^
                 -w /app ^
                 jenkins-build-env ^
                 python build.py
@@ -30,9 +30,9 @@ pipeline {
             }
         } 
         stage("Debug"){
-            steps(
+            steps{
                 bat 'dir build'
-            )
+                }
         }
 
         stage('Archive') {
