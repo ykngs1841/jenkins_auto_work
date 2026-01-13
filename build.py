@@ -27,7 +27,7 @@ cmd = [
 # ===== 디버깅 ======
 print("=== DEBUG ===", flush=True)
 # Docker 도입으로 불필요 print("g++ exists:", os.path.exists(r"C:\msys64\mingw64\bin\g++.exe"))  #PATH 문제 발생
-print("SRC_FILE exists:", flush=True, os.path.exists(SRC_FILE))
+print("SRC_FILE exists:", os.path.exists(SRC_FILE), flush=True)
 print("CMD:", cmd, flush=True)
 print("=============", flush=True)
 
