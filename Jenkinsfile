@@ -22,6 +22,7 @@ pipeline {
                 bat """
                 docker run --rm ^
                 -v %WORKSPACE%:/app ^
+                -w /app ^
                 jenkins-build-env ^
                 python build.py
                 """
