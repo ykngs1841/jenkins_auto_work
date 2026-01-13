@@ -16,6 +16,9 @@ RUN apt-get update && \
 # python 명령어 통일
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
+# 빌드 전용 디렉터리 (컨테이너 내부)
+RUN mkdir -p /build && chmod -R 777 /build
+
 # 작업 디렉토리
 WORKDIR /app
 
