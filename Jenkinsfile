@@ -29,6 +29,11 @@ pipeline {
                 """
             }
         } 
+        stage("Debug"){
+            steps(
+                bat 'dir build'
+            )
+        }
 
         stage('Archive') {
             steps {
