@@ -1,5 +1,9 @@
 pipeline {
     agent any
+
+    triggers {
+        pollSCM('H/2 * * * *')
+    }
     options {
     disableConcurrentBuilds() 
     }
@@ -11,13 +15,6 @@ pipeline {
     }   
 
     stages {
-        stage('Checkout') {
-    steps {
-        git branch: 'main',
-            url: 'https://github.com/your-id/your-repo.git'
-            }
-        }
-
         stage('Build') {
             steps {
                 echo "Building project on build_result_${env.BUILD_DATE}..."
