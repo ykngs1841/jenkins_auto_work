@@ -9,7 +9,7 @@ BUILD_DATE = datetime.now().strftime("%y%m%d")
 SRC_ROOT = "/app"
 BUILD_DIR = "/build"                                   # OS 연결 -> Docker로 인하여 수정 
 SRC_FILE = os.path.join(SRC_ROOT, "src", "main.cpp")
-OUTPUT_FILE = f"build/app_{BUILD_DATE}.exe"                  # 산출물 생성
+OUTPUT_FILE = f"app_{BUILD_DATE}.exe"                  # 산출물 생성
 
 print(f"=== Build Start : {BUILD_DATE} ===")
 
