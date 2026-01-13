@@ -9,7 +9,7 @@ BUILD_DATE = datetime.now().strftime("%y%m%d")
 SRC_ROOT = "/app"
 BUILD_DIR = "/build"                                   # OS 연결 -> Docker로 인하여 수정 
 SRC_FILE = os.path.join(SRC_ROOT, "src", "main.cpp")
-OUTPUT_FILE = f"app_{BUILD_DATE}.exe"                  # 산출물 생성
+OUTPUT_FILE = f"build/app_{BUILD_DATE}.exe"                  # 산출물 생성
 
 print(f"=== Build Start : {BUILD_DATE} ===")
 
@@ -18,7 +18,7 @@ os.makedirs(BUILD_DIR, exist_ok=True)
 
 # ===== 컴파일 명령 정의=====
 cmd = [
-    #r"C:\msys64\mingw64\bin\g++.exe",       # C++ 컴파일러
+    #r"C:\msys64\mingw64\bin\g++.exe",       # Docker로 인하여 삭제 진행 #C++ 컴파일러
     "g++",
     SRC_FILE,    # 컴파일러 대상 지정
     "-o",        # Output ->이름 명명  
@@ -26,7 +26,7 @@ cmd = [
 ]
 # ===== 디버깅 ======
 print("=== DEBUG ===")
-print("g++ exists:", os.path.exists(r"C:\msys64\mingw64\bin\g++.exe"))  #PATH 문제 발생
+# Docker 도입으로 불필요 print("g++ exists:", os.path.exists(r"C:\msys64\mingw64\bin\g++.exe"))  #PATH 문제 발생
 print("SRC_FILE exists:", os.path.exists(SRC_FILE))
 print("CMD:", cmd)
 print("=============")
