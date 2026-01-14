@@ -24,8 +24,7 @@ cmd = [
     "g++",
     SRC_FILE,    # 컴파일러 대상 지정
     "-o",        # Output ->이름 명명  
-    os.path.join(BUILD_DIR, OUTPUT_FILE),
-    os.path.join(BUILD_DIR, RESULT_FILE)
+    os.path.join(BUILD_DIR, OUTPUT_FILE)
 ]
 # ===== 디버깅 ======
 print("=== DEBUG ===", flush=True)
@@ -65,6 +64,6 @@ with open(log_file, "w") as f:   # 열린 파일을 f로 명명
     print("Build SUCCESS")
     f.write(f"Output: {OUTPUT_FILE}\n")
 
-with open(RESULT_FILE, "w") as f:
+with open(os.path.join(BUILD_DIR, RESULT_FILE), "w") as f:
     f.write(f"Date: {BUILD_DATE}\n")
     f.write(f"Output: {RESULT_FILE}\n")
