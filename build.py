@@ -10,7 +10,7 @@ SRC_ROOT = "/app"
 BUILD_DIR = "/build"                                   # OS 연결 -> Docker로 인하여 수정 
 SRC_FILE = os.path.join(SRC_ROOT, "src", "main.cpp")
 OUTPUT_FILE = f"app_{BUILD_DATE}.exe"     
-RESULT_FILE = os.path.join(BUILD_DIR, f"build_result{BUILD_DATE}.txt")             # 산출물 생성
+RESULT_FILE = os.path.join(BUILD_DIR, f"build_result_{BUILD_DATE}.txt")             # 산출물 생성
 log_file = os.path.join(BUILD_DIR, f"build_log_{BUILD_DATE}.txt")                  # ===== 로그 파일 경로 =====
 
 print(f"=== Build Start : {BUILD_DATE} ===", flush=True)
@@ -59,12 +59,11 @@ if result.returncode != 0:
 
 # ===== 성공 처리 =====
 
-with open(log_file, "w") as f:
-    f.write(result.stdout)
+with open(log_file, "w") as f:   # 열린 파일을 f로 명명
+    f.write(result.stdout)       # 해당 파일에 작성
     print("Build SUCCESS")
     f.write(f"Output: {OUTPUT_FILE}\n")
-    
+
 with open(RESULT_FILE, "w") as f:
-    print("Build SUCCESS\n")
     f.write(f"Date: {BUILD_DATE}\n")
     f.write(f"Output: {OUTPUT_FILE}\n")
