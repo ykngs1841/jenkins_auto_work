@@ -20,7 +20,6 @@ os.makedirs(BUILD_DIR, exist_ok=True)
 
 # ===== 컴파일 명령 정의=====
 cmd = [
-    #r"C:\msys64\mingw64\bin\g++.exe",       # Docker로 인하여 삭제 진행 #C++ 컴파일러
     "g++",
     SRC_FILE,    # 컴파일러 대상 지정
     "-o",        # Output ->이름 명명  
@@ -28,7 +27,6 @@ cmd = [
 ]
 # ===== 디버깅 ======
 print("=== DEBUG ===", flush=True)
-# Docker 도입으로 불필요 print("g++ exists:", os.path.exists(r"C:\msys64\mingw64\bin\g++.exe"))  #PATH 문제 발생
 print("SRC_FILE exists:", os.path.exists(SRC_FILE), flush=True)
 print("CMD:", cmd, flush=True)
 print("=============", flush=True)
@@ -39,6 +37,12 @@ result = subprocess.run( # 외부 명령어 실행
     cmd,
     capture_output=True,
     text=True            # 출력형태 str 
+)
+
+run_result = subprocess.run(             #main.cpp의 exe실행 + 출력받기
+    [os.path.join(BUILD_DIR, OUTPUT_FILE)],
+    capture_output=True,
+    text=True
 )
 
 # ===== 실패 처리 =====
@@ -67,3 +71,4 @@ with open(log_file, "w") as f:   # 열린 파일을 f로 명명
 with open(os.path.join(BUILD_DIR, RESULT_FILE), "w") as f:
     f.write(f"Date: {BUILD_DATE}\n")
     f.write(f"Output: {RESULT_FILE}\n")
+    f.write(run_result.stdout)
