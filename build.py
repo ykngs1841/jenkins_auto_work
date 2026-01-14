@@ -10,7 +10,7 @@ SRC_ROOT = "/app"
 BUILD_DIR = "/build"                                   # OS 연결 -> Docker로 인하여 수정 
 SRC_FILE = os.path.join(SRC_ROOT, "src", "main.cpp")
 OUTPUT_FILE = f"app_{BUILD_DATE}.exe"     
-RESULT_FILE = os.path.join(BUILD_DIR, f"build_result_{BUILD_DATE}.txt")             # 산출물 생성
+RESULT_FILE = f"build_result_{BUILD_DATE}.txt"            # 산출물 생성
 log_file = os.path.join(BUILD_DIR, f"build_log_{BUILD_DATE}.txt")                  # ===== 로그 파일 경로 =====
 
 print(f"=== Build Start : {BUILD_DATE} ===", flush=True)
@@ -25,6 +25,7 @@ cmd = [
     SRC_FILE,    # 컴파일러 대상 지정
     "-o",        # Output ->이름 명명  
     os.path.join(BUILD_DIR, OUTPUT_FILE)
+    os.path.join(BUILD_DIR, RESULT_FILE)
 ]
 # ===== 디버깅 ======
 print("=== DEBUG ===", flush=True)
@@ -66,4 +67,4 @@ with open(log_file, "w") as f:   # 열린 파일을 f로 명명
 
 with open(RESULT_FILE, "w") as f:
     f.write(f"Date: {BUILD_DATE}\n")
-    f.write(f"Output: {OUTPUT_FILE}\n")
+    f.write(f"Output: {RESULT_FILE}\n")
