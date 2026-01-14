@@ -11,6 +11,7 @@ BUILD_DIR = "/build"                                   # OS 연결 -> Docker로 
 SRC_FILE = os.path.join(SRC_ROOT, "src", "main.cpp")
 OUTPUT_FILE = f"app_{BUILD_DATE}.exe"     
 RESULT_FILE = os.path.join(BUILD_DIR, f"build_result{BUILD_DATE}.txt")             # 산출물 생성
+log_file = os.path.join(BUILD_DIR, f"build_log_{BUILD_DATE}.txt")                  # ===== 로그 파일 경로 =====
 
 print(f"=== Build Start : {BUILD_DATE} ===", flush=True)
 
@@ -40,9 +41,6 @@ result = subprocess.run( # 외부 명령어 실행
     text=True            # 출력형태 str 
 )
 
-# ===== 로그 파일 경로 =====
-log_file = os.path.join(BUILD_DIR, f"build_log_{BUILD_DATE}.txt")
-
 # ===== 실패 처리 =====
 if result.returncode != 0:
     print("Build FAILED")
@@ -60,8 +58,13 @@ if result.returncode != 0:
     sys.exit(1)
 
 # ===== 성공 처리 =====
+
 with open(log_file, "w") as f:
     f.write(result.stdout)
     print("Build SUCCESS")
     f.write(f"Output: {OUTPUT_FILE}\n")
-    print(f"Output: {RESULT_FILE}")
+    
+with open(RESULT_FILE, "w") as f:
+    print("Build SUCCESS\n")
+    f.write(f"Date: {BUILD_DATE}\n")
+    f.write(f"Output: {OUTPUT_FILE}\n")
