@@ -63,7 +63,7 @@ if result.returncode != 0:
 
 # ===== 성공 처리 =====
 
-with open(log_file, "w") as f:   # 열린 파일을 f로 명명
+with open(os.path.hoin(BUILD_DIR, log_file), "w") as f:   # 열린 파일을 f로 명명
     f.write(result.stdout)       # 해당 파일에 작성
     print("Build SUCCESS")
     f.write(f"Output: {OUTPUT_FILE}\n")
