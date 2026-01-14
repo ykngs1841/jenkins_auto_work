@@ -24,7 +24,7 @@ cmd = [
     "g++",
     SRC_FILE,    # 컴파일러 대상 지정
     "-o",        # Output ->이름 명명  
-    os.path.join(BUILD_DIR, OUTPUT_FILE)
+    os.path.join(BUILD_DIR, OUTPUT_FILE),
     os.path.join(BUILD_DIR, RESULT_FILE)
 ]
 # ===== 디버깅 ======
