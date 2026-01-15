@@ -11,7 +11,7 @@ BUILD_DIR = "/app/build"                                   # OS 연결 -> Docker
 
 SRC_FILE = os.path.join(SRC_ROOT, "src", "main.cpp")
 OUTPUT_FILE = f"app_{BUILD_DATE}.exe"     
-RESULT_FILE = os.path.join(SRC_ROOT,f"build_result_{BUILD_DATE}.txt")            # 산출물 생성
+RESULT_FILE = os.path.join(BUILD_DIR,f"build_result_{BUILD_DATE}.txt")            # 산출물 생성
 log_file = os.path.join(BUILD_DIR, f"build_log_{BUILD_DATE}.txt")                # ===== 로그 파일 경로 =====
 os.makedirs(BUILD_DIR, exist_ok=True)                                            # build 디렉토리 생성
 
