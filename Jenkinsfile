@@ -9,6 +9,7 @@ pipeline {
     }   //Build 변수 선언 및 파일 적용
 
     stages {
+
         stage('Build') {
             steps {
                 echo "Building project on build_result_${env.BUILD_DATE}..."
@@ -25,7 +26,7 @@ pipeline {
 
         stage('Archive') {
             steps {
-                archiveArtifacts artifacts: 'build/**/*.txt', fingerprint: true
+                archiveArtifacts artifacts: 'build/**', fingerprint: true
             } // Build 산출물 저장
         }
     }
@@ -46,7 +47,7 @@ The attached file is the output of this build.
 
                         """,
                 to: "kyungsuyoon09@gmail.com, ykngs1841@naver.com, ykngs1841@gmail.com",
-                attachmentsPattern: "build/*.txt "
+                attachmentsPattern: "build/**/*.txt "
             )
         }
 
