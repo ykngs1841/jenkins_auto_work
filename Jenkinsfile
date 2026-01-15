@@ -15,11 +15,11 @@ pipeline {
                 echo "Building project on build_result_${env.BUILD_DATE}..."
 
                 bat """
-                docker run --rm ^
-                -v %WORKSPACE%:/app ^
-                -w /app ^
-                jenkins-build-env ^
-                python build.py ${env.BUILD_DIR}
+                docker run --rm ^ \n
+                -v %WORKSPACE%:/app ^ \n
+                -w /app ^ \n
+                jenkins-build-env ^ \n
+                python build.py ${env.BUILD_DIR} \n
                 """
             }
         } // 추후 배포 패키지 파일로 대체
