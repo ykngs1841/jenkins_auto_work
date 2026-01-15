@@ -22,7 +22,7 @@ pipeline {
                 python build.py ${env.BUILD_DIR}
                 """
             }
-        } // 추후 배포 패키지 파일로 대체
+        } // 추후 배포 패키지 파일로 대체 
 
         stage('Archive') {
             steps {
