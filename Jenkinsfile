@@ -16,6 +16,7 @@ pipeline {
                 bat """
                 docker run --rm ^
                 -v %WORKSPACE%:/app ^
+                -v %WORKSPACE%\\BUILD:/BUILD ^
                 jenkins-build-env ^
                 python build.py
                 """
@@ -45,7 +46,7 @@ The attached file is the output of this build.
 
                         """,
                 to: "kyungsuyoon09@gmail.com, ykngs1841@naver.com, ykngs1841@gmail.com",
-                attachmentsPattern: "${env.BUILD_FILE}, build_log_*.txt "
+                attachmentsPattern: "${env.BUILD_FILE},build_log_*.txt "
             )
         }
 

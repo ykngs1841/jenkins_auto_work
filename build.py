@@ -8,15 +8,15 @@ BUILD_DATE = datetime.now().strftime("%y%m%d")
 #PROJECT_ROOT = os.getcwd()                            # Docker로 인하여 삭제 진행 # 절대경로 설정
 SRC_ROOT = "/app"
 BUILD_DIR = "/app/build"                                   # OS 연결 -> Docker로 인하여 수정 
+
 SRC_FILE = os.path.join(SRC_ROOT, "src", "main.cpp")
 OUTPUT_FILE = f"app_{BUILD_DATE}.exe"     
 RESULT_FILE = os.path.join(SRC_ROOT,f"build_result_{BUILD_DATE}.txt")            # 산출물 생성
-log_file = os.path.join(BUILD_DIR, f"build_log_{BUILD_DATE}.txt")                  # ===== 로그 파일 경로 =====
+log_file = os.path.join(BUILD_DIR, f"build_log_{BUILD_DATE}.txt")                # ===== 로그 파일 경로 =====
+os.makedirs(BUILD_DIR, exist_ok=True)                                            # build 디렉토리 생성
+
 
 print(f"=== Build Start : {BUILD_DATE} ===", flush=True)
-
-# build 디렉토리 생성
-os.makedirs(BUILD_DIR, exist_ok=True)
 
 # ===== 컴파일 명령 정의=====
 cmd = [
