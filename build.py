@@ -7,7 +7,7 @@ from datetime import datetime
 BUILD_DATE = datetime.now().strftime("%y%m%d")
 #PROJECT_ROOT = os.getcwd()                            # Docker로 인하여 삭제 진행 # 절대경로 설정
 SRC_ROOT = "/app"
-BUILD_DIR = "/app/build"                                   # OS 연결 -> Docker로 인하여 수정 
+BUILD_DIR = sys.argv[1]                                 # OS 연결 -> Docker로 인하여 수정 
 
 SRC_FILE = os.path.join(SRC_ROOT, "src", "main.cpp")
 OUTPUT_FILE = f"app_{BUILD_DATE}.exe"     
