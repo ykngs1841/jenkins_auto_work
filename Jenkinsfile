@@ -14,8 +14,8 @@ pipeline {
                 echo "Building project on build_result_${BUILD_DATE}..."   
 
                 sh '''
-                docker run --rm \                           
-                  -v "$WORKSPACE:/app" \                    
+                docker run --rm \
+                  -v "$WORKSPACE:/app" \
                   -w /app \
                   jenkins-build-env \
                   python build.py build/${BUILD_DATE}_#${BUILD_NUMBER}   
