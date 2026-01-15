@@ -25,7 +25,7 @@ pipeline {
 
         stage('Archive') {
             steps {
-                archiveArtifacts artifacts: 'build/**', fingerprint: true
+                archiveArtifacts artifacts: 'build/**/*.txt', fingerprint: true
             } // Build 산출물 저장
         }
     }
