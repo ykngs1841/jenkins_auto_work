@@ -5,6 +5,7 @@ pipeline {
         // PATH = "C:\\msys64\\mingw64\\bin;${env.PATH}" -> Docker 수행
         BUILD_DATE = new Date().format('yyMMdd') 
         BUILD_FILE = "build_result_${BUILD_DATE}.txt" 
+        BUILD_DIR  = "build/${env.BUILD_DATE}_#${env.BUILD_NUMBER}" 
     }   //Build 변수 선언 및 파일 적용
 
     stages {
@@ -16,9 +17,9 @@ pipeline {
                 bat """
                 docker run --rm ^
                 -v %WORKSPACE%:/app ^
-                -v %WORKSPACE%\\BUILD:/BUILD ^
+                -w /app ^
                 jenkins-build-env ^
-                python build.py
+                python build.py ${env.BUILD_DIR}
                 """
             }
         } // 추후 배포 패키지 파일로 대체
