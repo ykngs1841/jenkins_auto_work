@@ -12,7 +12,9 @@ BUILD_DIR = sys.argv[1]                                 # OS 연결 -> Docker로
 SRC_FILE = os.path.join(SRC_ROOT, "src", "main.cpp")
 OUTPUT_FILE = f"app_{BUILD_DATE}.exe"     
 RESULT_FILE = os.path.join(BUILD_DIR,f"build_result_{BUILD_DATE}.txt")            # 산출물 생성
-log_file = os.path.join(BUILD_DIR, f"build_log_{BUILD_DATE}.txt")                # ===== 로그 파일 경로 =====
+LOG_FILE = os.path.join(BUILD_DIR, f"build_log_{BUILD_DATE}.txt")                # ===== 로그 파일 경로 =====
+
+
 os.makedirs(BUILD_DIR, exist_ok=True)                                            # build 디렉토리 생성
 
 
@@ -53,7 +55,7 @@ if result.returncode != 0:
     print("=== STDERR ===")
     print(result.stderr)
 
-    with open(log_file, "w") as f:
+    with open(LOG_FILE, "w") as f:
         f.write("=== STDOUT ===\n")
         f.write(result.stdout + "\n")
         f.write("=== STDERR ===\n")
@@ -63,12 +65,12 @@ if result.returncode != 0:
 
 # ===== 성공 처리 =====
 
-with open(os.path.join(BUILD_DIR, log_file), "w") as f:   # 열린 파일을 f로 명명
+with open(LOG_FILE, "w") as f:   # 열린 파일을 f로 명명
     f.write(result.stdout)       # 해당 파일에 작성
     print("Build SUCCESS")
     f.write(f"Output: {OUTPUT_FILE}\n")
 
-with open(os.path.join(BUILD_DIR, RESULT_FILE), "w") as f:
+with open(RESULT_FILE, "w") as f:
     f.write(f"Date: {BUILD_DATE}\n")
     f.write(f"Output: {RESULT_FILE}\n")
     f.write(run_result.stdout)
