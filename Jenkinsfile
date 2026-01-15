@@ -47,7 +47,7 @@ The attached file is the output of this build.
 
                         """,
                 to: "kyungsuyoon09@gmail.com, ykngs1841@naver.com, ykngs1841@gmail.com",
-                attachmentsPattern: "build/**/*.txt "
+                attachmentsPattern: "${env.BUILD_DIR}/*.txt "
             )
         }
 
